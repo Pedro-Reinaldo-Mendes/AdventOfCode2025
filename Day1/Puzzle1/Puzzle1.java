@@ -6,7 +6,7 @@ import java.util.Scanner;
  * Possible algorithm solution of Advent of Code 2025 > Day 1 > Puzzle 1.
  * 
  * @author Pedro Reinaldo Mendes (https://pedrorm.com)
- * @version 1.6
+ * @version 1.61
  */
 public class Puzzle1 {
 
@@ -22,9 +22,9 @@ public class Puzzle1 {
      * @implSpec This function reads the input from "input.txt". **The file's
      *           content must be well-formatted as indicated in the problem
      *           instructions**.
-     * @implSpec The number of rotations in each step of the input file must be less
-     *           than or equal to {@code Integer.MAX_VALUE - cursor} to prevent
-     *           integer overflow.
+     * @implSpec The number of rotations in each step of the input file must be
+     *           greater than or equal to 0 and less than or equal to
+     *           {@code Integer.MAX_VALUE - cursor} to prevent integer overflow.
      */
     public static void main(String[] args) {
 
