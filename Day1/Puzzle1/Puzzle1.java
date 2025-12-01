@@ -6,7 +6,7 @@ import java.util.Scanner;
  * Possible algorithm solution of Advent of Code 2025 > Day 1 > Puzzle 1.
  * 
  * @author Pedro Reinaldo Mendes (https://pedrorm.com)
- * @version 1.0
+ * @version 1.6
  */
 public class Puzzle1 {
 
@@ -65,7 +65,8 @@ public class Puzzle1 {
             int direction = calculateDirection(line.charAt(0)); // Direction will be 1 if the rotation is to the right
                                                                 // and -1 if the rotation is to the left
             int jumpDistance = Integer.parseInt(line.substring(1));
-            cursor = (cursor + direction * jumpDistance) % 100;
+            // Ensure cursor wraps around [0, 99] using positive modulo arithmetic
+            cursor = (((cursor + direction * jumpDistance) % 100) + 100) % 100;
 
             if (cursor == 0)
                 password++;
