@@ -3,12 +3,12 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 /**
- * Possible algorithm solution of Advent of Code 2025 > Day 1 > Puzzle 1.
+ * Possible algorithm solution of Advent of Code 2025 > Day 1 > Puzzle 2.
  * 
  * @author Pedro Reinaldo Mendes (https://pedrorm.com)
- * @version 1.61
+ * @version 1.0
  */
-public class Puzzle1 {
+public class D1Puzzle2 {
 
     /**
      * Main function to obtain and **print** the result (password) of the puzzle,
@@ -22,6 +22,9 @@ public class Puzzle1 {
      * @implSpec This function reads the input from "input.txt". **The file's
      *           content must be well-formatted as indicated in the problem
      *           instructions**.
+     * @implSpec The number of rotations in each step of the input file must be less
+     *           than or equal to {@code Integer.MAX_VALUE - cursor} to prevent
+     *           integer overflow.
      * @implSpec The number of rotations in each step of the input file must be
      *           greater than or equal to 0 and less than or equal to
      *           {@code Integer.MAX_VALUE - cursor} to prevent integer overflow.
@@ -62,14 +65,26 @@ public class Puzzle1 {
         // For each line in the input file
         while (sc.hasNextLine()) {
             String line = sc.nextLine();
+            System.out.println(line);
             int direction = calculateDirection(line.charAt(0)); // Direction will be 1 if the rotation is to the right
                                                                 // and -1 if the rotation is to the left
             int jumpDistance = Integer.parseInt(line.substring(1));
-            // Ensure cursor wraps around [0, 99] using positive modulo arithmetic
-            cursor = (((cursor + direction * jumpDistance) % 100) + 100) % 100;
 
-            if (cursor == 0)
+            // We'll add the full circles we do to the counter before anything
+            password += jumpDistance / 100;
+            System.out.println("Password: " + password);
+
+            // Ensure new cursor wraps around [0, 99] using positive modulo arithmetic
+            int newCursor = (((cursor + direction * jumpDistance) % 100) + 100) % 100;
+            System.out.println("New cusor: " + newCursor);
+
+            // We'll now check if we passed through number 0 in any moment of our rotation
+            if (cursor != 0 && (newCursor == 0 || (direction == 1 ? newCursor < cursor : newCursor > cursor)))
                 password++;
+            System.out.println("Password: " + password);
+
+            // We re-define the cursor value
+            cursor = newCursor;
         }
 
         // We'll finally return the password

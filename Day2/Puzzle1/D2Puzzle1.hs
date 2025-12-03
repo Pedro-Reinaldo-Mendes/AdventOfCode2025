@@ -2,7 +2,7 @@
 -- Version: v1.0
 
 -- For this module to work fine, we're at all times thinking on well-formatted input as the explained in the instructions
-module Puzzle1 where
+module D2Puzzle1 where
 
 import System.IO
 
