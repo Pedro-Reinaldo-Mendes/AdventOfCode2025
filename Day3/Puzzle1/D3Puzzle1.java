@@ -15,8 +15,6 @@ public class D3Puzzle1 {
      * well-formatted input in "input.txt" file.
      * 
      * @param args Command-line arguments (unused on our application).
-     * @throws IOException if the required "input.txt" was not found on the same
-     *                     directory as where the execution command is done.
      * @see #solvePuzzle(BufferedReader)
      * @implSpec The input must be well-formatted as explained in the puzzle's
      *           instructions.

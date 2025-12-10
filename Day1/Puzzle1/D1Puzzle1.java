@@ -15,9 +15,6 @@ public class D1Puzzle1 {
      * given a certain well-formatted input in "input.txt" file.
      * 
      * @param args Command-line arguments (unused in this application).
-     * @throws FileNotFoundException if the required input file "input.txt" is not
-     *                               found in the same working directory as the
-     *                               execution command.
      * @see #calculatePassword(Scanner)
      * @implSpec This function reads the input from "input.txt". **The file's
      *           content must be well-formatted as indicated in the problem
