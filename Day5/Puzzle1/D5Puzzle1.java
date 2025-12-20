@@ -71,7 +71,7 @@ public class D5Puzzle1 {
      * 
      * @param id     The ingredient ID to check.
      * @param ranges The list of fresh ingredient ID ranges.
-     * @return True if the ingredient is fresh, false otherwise.
+     * @return {@code true} if the ingredient is fresh, {@code false} otherwise.
      * @throws NullPointerException if {@code ranges == null}
      */
     private static boolean isFresh(long id, List<long[]> ranges) {
